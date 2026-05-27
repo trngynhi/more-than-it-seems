@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More Than It Seems</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="top-ui">
+      <button id="sound-toggle">sound off</button>
+      <button id="restart-toggle">restart</button>
+    </div>
+
+    <audio id="bg-audio" loop>
+      <source src="assets/audio-endless-orbit.mp3" type="audio/mpeg">
+    </audio> 
+
+  <main id="landing" class="landing">
+    <div class="bg-blocks"></div>
+
+    <section class="hero">
+      <img src="assets/landing-ellipse.svg" class="landing-ellipse" alt="">
+      <img src="assets/landing-title.png" class="landing-title" alt="More Than It Seems">
+
+      <p class="intro" id="typewriter"></p>
+    </section>
+
+    <section class="instructions">
+      <p>press any key to notice</p>
+      <p>press space to enter the ordinary</p>
+    </section>
+  </main>
+
+  <div id="split-transition">
+    <div class="split-half split-top"></div>
+    <div class="split-half split-bottom"></div>
+  </div>
+
+  <div id="phase-message">
+    <p id="phase-typewriter-one"></p>
+    <p id="phase-typewriter-two"></p>
+  </div>
+
+  <div id="orbit-scene">
+  <div class="orbit-ring">
+    <div class="orbit-frame phone-frame">
+      <img src="assets/orbit-cover 1.svg" alt="orbit-cover">
+    </div>
+    <div class="orbit-frame people-frame">
+      <img src="assets/orbit-cover 2.svg" alt="orbit-cover">
+    </div>
+    <div class="orbit-frame random-things-frame">
+      <img src="assets/orbit-cover 3.svg" alt="orbit-cover">
+    </div>
+    <div class="orbit-frame life-frame">
+      <img src="assets/orbit-cover 4.svg" alt="orbit-cover">
+    </div>
+    <div class="orbit-frame pause-frame">
+      <img src="assets/orbit-cover 5.svg" alt="orbit-cover">
+    </div>
+    <div class="orbit-frame shoes-frame">
+      <img src="assets/orbit-cover 6.svg" alt="orbit-cover">
+    </div>
+    <div class="orbit-frame feeding-frame">
+      <img src="assets/orbit-cover 7.svg" alt="orbit-cover">
+    </div>
+  </div>
+  </div>
+
+  <div id="hover-overlay" class="hover-overlay"></div>
+
+
+  <!-- PHONE FRAME PREVIEW -->
+<div id="phone-preview" class="phone-detail-preview">
+  <img src="assets/phone-bitmap.svg" alt="phone detail">
+  <p class="detail-caption">
+    a simple message you have sent<br>
+    to check up on your friend.
+  </p>
+</div>
+
+<!-- PEOPLE FRAME PREVIEW -->
+<div id="people-preview" class="people-detail-preview">
+  <img src="assets/people-bitmap.svg" alt="people detail">
+  <p class="detail-caption">
+    a small passing interaction you barely thought about.
+  </p>
+</div>
+
+<!-- RANDOM THINGS PREVIEW -->
+<div id="random-things-preview" class="random-things-detail-preview">
+  <img src="assets/random-things-bitmap.svg" alt="random things detail">
+  <p class="detail-caption">
+    a small trace of a moment you never meant to keep.
+  </p>
+</div>
+
+<!-- LIFE PREVIEW -->
+<div id="life-preview" class="life-detail-preview">
+  <img src="assets/life-bitmap.svg" alt="life detail">
+  <p class="detail-caption">
+    the background sounds of lives unfolding beside yours.
+  </p>
+</div>
+
+<!-- PAUSE PREVIEW -->
+<div id="pause-preview" class="pause-detail-preview">
+  <img src="assets/pause-bitmap.svg" alt="pause detail">
+  <p class="detail-caption">
+    the quiet act of noticing what was always there.
+  </p>
+</div>
+
+<!-- SHOES PREVIEW -->
+<div id="shoes-preview" class="shoes-detail-preview">
+  <img src="assets/shoes-bitmap.svg" alt="shoes detail">
+  <p class="detail-caption">
+    the quiet rituals of coming home.
+  </p>
+</div>
+
+<!-- FEEDING PREVIEW -->
+<div id="feeding-preview" class="feeding-detail-preview">
+  <img src="assets/feeding-bitmap-fix.svg" alt="feeding detail">
+  <p class="detail-caption">
+    the small rituals of feeding ourselves.
+  </p>
+</div>
+
+<!-- INTERACTION GUIDE TOGGLE -->
+<button id="guide-toggle" class="guide-toggle hidden">(i)</button>
+
+<div id="interaction-guide" class="guide-popup hidden">
+  <p>(i) interaction guide</p>
+  <p>press space to continue</p>
+  <p>press X to return to the orbit</p>
+  <p>click and hold to linger</p>
+</div>
+
+<div id="white-transition"></div>
+
+
+<!-- PHONE FRAME DETAIL -->
+<section id="phone-detail-scene" class="phone-detail-scene hidden">
+  <button id="detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="phone-detail-layout">
+    <div class="phone-detail-phone">
+      <img src="assets/phone-bitmap.svg" alt="phone detail">
+
+      <div class="phone-detail-01">
+        <p id="phone-typewriter-01"></p>
+      </div>
+
+      <div class="phone-detail-02 hidden">
+        <p id="phone-typewriter-02"></p>
+      </div>
+
+      <div class="phone-detail-03 hidden">
+        <p id="phone-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE FRAME DETAIL -->
+<section id="people-detail-scene" class="people-detail-scene hidden">
+  <button id="people-detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="people-detail-layout">
+    <div class="people-detail-people">
+      <img src="assets/people-bitmap.svg" alt="people detail" class="people-frame-image">
+
+      <div class="people-detail-01">
+        <p id="people-typewriter-01"></p>
+      </div>
+
+      <div class="people-detail-02 hidden">
+        <p id="people-typewriter-02"></p>
+      </div>
+
+      <div class="people-detail-03 hidden">
+        <p id="people-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RANDOM THINGS FRAME DETAIL -->
+<section id="random-things-detail-scene" class="random-things-detail-scene hidden">
+  <button id="random-things-detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="random-things-detail-layout">
+    <div class="random-things-detail">
+      <img src="assets/random-things-bitmap.svg" alt="random things detail" class="random-things-frame-image">
+
+      <div class="random-things-detail-01">
+        <p id="random-things-typewriter-01"></p>
+      </div>
+
+      <div class="random-things-detail-02 hidden">
+        <p id="random-things-typewriter-02"></p>
+      </div>
+
+      <div class="random-things-detail-03 hidden">
+        <p id="random-things-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE FRAME DETAIL -->
+<section id="life-detail-scene" class="life-detail-scene hidden">
+  <button id="life-detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="life-detail-layout">
+    <div class="life-detail">
+      <img src="assets/life-bitmap.svg" alt="life detail" class="life-frame-image">
+
+      <div class="life-detail-01">
+        <p id="life-typewriter-01"></p>
+      </div>
+
+      <div class="life-detail-02 hidden">
+        <p id="life-typewriter-02"></p>
+      </div>
+
+      <div class="life-detail-03 hidden">
+        <p id="life-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAUSE FRAME DETAIL -->
+<section id="pause-detail-scene" class="pause-detail-scene hidden">
+  <button id="pause-detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="pause-detail-layout">
+    <div class="pause-detail">
+      <img src="assets/pause-bitmap.svg" alt="pause detail" class="pause-frame-image">
+
+      <div class="pause-detail-01">
+        <p id="pause-typewriter-01"></p>
+      </div>
+
+      <div class="pause-detail-02 hidden">
+        <p id="pause-typewriter-02"></p>
+      </div>
+
+      <div class="pause-detail-03 hidden">
+        <p id="pause-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOES FRAME DETAIL -->
+<section id="shoes-detail-scene" class="shoes-detail-scene hidden">
+  <button id="shoes-detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="shoes-detail-layout">
+    <div class="shoes-detail">
+      <img src="assets/shoes-bitmap.svg" alt="shoes detail" class="shoes-frame-image">
+
+      <div class="shoes-detail-01">
+        <p id="shoes-typewriter-01"></p>
+      </div>
+
+      <div class="shoes-detail-02 hidden">
+        <p id="shoes-typewriter-02"></p>
+      </div>
+
+      <div class="shoes-detail-03 hidden">
+        <p id="shoes-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDING FRAME DETAIL -->
+<section id="feeding-detail-scene" class="feeding-detail-scene hidden">
+  <button id="feeding-detail-info" class="guide-toggle hidden">(i)</button>
+
+  <div class="feeding-detail-layout">
+    <div class="feeding-detail">
+      <img src="assets/feeding-bitmap-fix.svg" alt="feeding detail" class="feeding-frame-image">
+
+      <div class="feeding-detail-01">
+        <p id="feeding-typewriter-01"></p>
+      </div>
+
+      <div class="feeding-detail-02 hidden">
+        <p id="feeding-typewriter-02"></p>
+      </div>
+
+      <div class="feeding-detail-03 hidden">
+        <p id="feeding-typewriter-03"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDINARY MESSAGE CTA -->
+<button id="ordinary-message-cta" class="ordinary-message-cta hidden">
+  what message has the ordinary left for you?<br>
+  click here to receive it.
+</button>
+
+<!-- ORDINARY MESSAGE MODAL -->
+<div id="ordinary-message-modal" class="ordinary-message-modal hidden">
+  <div class="ordinary-message-box">
+    <p>enter your name<br>to receive a message from the ordinary</p>
+
+    <input id="ordinary-name-input" type="text" autocomplete="off">
+
+    <div class="ordinary-message-actions">
+      <button id="ordinary-continue">continue</button>
+      <button id="ordinary-cancel">go back</button>
+    </div>
+
+    <p id="ordinary-final-message" class="ordinary-final-message"></p>
+  </div>
+</div>
+
+<!-- custom cursor -->
+<div id="custom-cursor"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
